@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('layouts.master');
 });
 
+Route::resource('kategori','KategoriController');
+Route::resource('penerbit','PenerbitController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
