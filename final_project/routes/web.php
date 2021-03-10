@@ -24,9 +24,10 @@ Route::put('/buku/{id}','BukuController@updatebk');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'UserDashboardController@index')->name('home');
 #dashboard route
 Route::get('/dashboard', 'UserDashboardController@index');
+Route::get('/dashboard/{id}/show', 'UserDashboardController@show');
 
 #profile route
 Route::get('/profil', 'ProfilController@index');

@@ -28,7 +28,7 @@
                             <td>{{$value->deskripsi}}</td>
                             <td>{{$value->penulis}}</td>
                             <td>{{$value->tahun}}</td>
-                            <td><a href="#" class="btn btn-info rounded">Show</a></td>
+                            <td><a href="/dashboard/{{$value->id}}/show" class="btn btn-info rounded">Show</a></td>
                         </tr>
                     @endforeach 
                     </tbody>
