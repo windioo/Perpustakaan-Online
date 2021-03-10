@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Buku Ku</title>
+    <title>Material Able bootstrap admin template by Codedthemes</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -92,14 +92,14 @@
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
             {{-- Navbar --}}
-            @include('layouts.partials.navbar')
+            @include('layoutsmember.partials.navbar')
             {{-- End Navbar --}}
             
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
 
                     {{-- Sidebar --}}
-                    @include('layouts.partials.sidebar')
+                    @include('layoutsmember.partials.sidebar')
                     {{-- End Sidebar --}}
 
                     {{-- Content --}}

@@ -22,7 +22,7 @@
                             <div class="pcoded-navigation-label">Navigation</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="">
-                                    <a href="index.html" class="waves-effect waves-dark">
+                                    <a href="/dashboard" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                         <span class="pcoded-mtext">Dashboard</span>
                                         <span class="pcoded-mcaret"></span>
@@ -30,30 +30,23 @@
                                 </li>
                                     <hr>
                                 <li class="">
-                                    <a href="index.html" class="waves-effect waves-dark">
+                                    <a href="/profil" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
-                                        <span class="pcoded-mtext">Member</span>
+                                        <span class="pcoded-mtext">Profil</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li><hr>
                                 <li class="">
-                                    <a href="{{ route("kategori.index") }}" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-vector"></i><b>D</b></span>
-                                        <span class="pcoded-mtext">Kategori</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li><hr>
-                                <li class="">
-                                    <a href="{{ route("penerbit.index") }}" class="waves-effect waves-dark">
+                                    <a href="#" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-ruler-pencil"></i><b>D</b></span>
-                                        <span class="pcoded-mtext">Penerbit</span>
+                                        <span class="pcoded-mtext">Koleksi</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li><hr>
                                 <li class="">
-                                    <a href="index.html" class="waves-effect waves-dark">
+                                    <a href="#" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-book"></i><b>D</b></span>
-                                        <span class="pcoded-mtext">Buku</span>
+                                        <span class="pcoded-mtext">History</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>

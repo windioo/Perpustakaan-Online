@@ -136,13 +136,19 @@
                                                 @if (Route::has('password.request'))
                                                     <a href="{{ route('password.request') }}" class="text-right f-w-600" > Forgot Password?</a>
                                                 @endif
-                                                
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row m-t-30">
                                         <div class="col-md-12">
                                             <button type="submit" class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">Login</button>
+                                        </div>
+                                    </div>
+                                    <div class="row m-t-10">
+                                        <div class="col-12">
+                                            <div class="text-left">
+                                                <span>Don't Have Account Yet? </span><a href="{{ route('register') }}">Register Here</a>
+                                            </div>
                                         </div>
                                     </div>
                                     <hr/>
