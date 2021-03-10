@@ -21,6 +21,11 @@ Route::resource('penerbit','PenerbitController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+#dashboard route
+Route::get('/dashboard', 'UserDashboardController@index');
+
+#profile route
 Route::get('/profil', 'ProfilController@index');
 Route::put('/profil/{id}', 'ProfilController@update');
 Route::put('/profil/{id}/updatefoto', 'ProfilController@updatefoto');
+

@@ -92,14 +92,14 @@
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
             {{-- Navbar --}}
-            @include('layouts-member.partials.navbar')
+            @include('layoutsmember.partials.navbar')
             {{-- End Navbar --}}
             
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
 
                     {{-- Sidebar --}}
-                    @include('layouts-member.partials.sidebar')
+                    @include('layoutsmember.partials.sidebar')
                     {{-- End Sidebar --}}
 
                     {{-- Content --}}
