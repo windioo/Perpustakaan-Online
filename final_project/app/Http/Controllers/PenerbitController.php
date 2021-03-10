@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Penerbit;
+use DB;
 class PenerbitController extends Controller
 {
     /**
@@ -13,8 +14,10 @@ class PenerbitController extends Controller
      */
     public function index()
     {
-        //
+         $penerbit = DB::table('penerbits')->get();
+         return view('penerbit/index', compact('penerbit'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -23,7 +26,7 @@ class PenerbitController extends Controller
      */
     public function create()
     {
-        //
+        return view('penerbit.create');
     }
 
     /**
@@ -34,7 +37,17 @@ class PenerbitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+                'nama' => 'required|unique:penerbits',
+                'no_telp' =>'required',
+                'alamat' =>'required'
+            ]);
+             $penerbit = Penerbit::create([
+                        "nama" => $request['nama'],
+                        "no_telp" => $request['no_telp'],
+                        "alamat" => $request['alamat']
+                    ]);
+            return redirect('/penerbit')->with('success','Penerbit Berhasil Disimpan!');
     }
 
     /**
@@ -45,7 +58,9 @@ class PenerbitController extends Controller
      */
     public function show($id)
     {
-        //
+         $penerbit = Penerbit::find($id);
+        
+        return view('penerbit/show',compact('penerbit'));
     }
 
     /**
@@ -56,7 +71,8 @@ class PenerbitController extends Controller
      */
     public function edit($id)
     {
-        //
+         $penerbit = Penerbit::find($id);
+         return view('penerbit/edit', compact('penerbit'));
     }
 
     /**
@@ -68,7 +84,18 @@ class PenerbitController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+                'nama' => 'required|unique:penerbits',
+                'no_telp' =>'required',
+                'alamat' =>'required'
+                ]);
+           $penerbit = Penerbit::where('id',$id)->update([
+                        "nama" => $request['nama'],
+                        "no_telp" => $request['no_telp'],
+                        "alamat" => $request['alamat']
+            ]);
+
+            return redirect('/penerbit')->with('success','Berhasil Di Ubah!');
     }
 
     /**
@@ -79,6 +106,7 @@ class PenerbitController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $penerbit = Penerbit::destroy($id);
+        return redirect('/penerbit')->with('success','Berhasil Di Dihapus!');
     }
 }

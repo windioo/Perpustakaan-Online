@@ -24,7 +24,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer text-right  ml-3 mr-3 mb-3">
-                  <a href="/pertanyaan" class="btn btn-default ml-3">Kembali</a>
+                  <a href="/kategori" class="btn btn-default ml-3">Kembali</a>
                 <button type="submit" class="btn btn-primary ml-3">Submit</button>
               </div>
             </form>

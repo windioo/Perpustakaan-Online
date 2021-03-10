@@ -8,13 +8,16 @@
      </div>
 
      <div class="card-body"> 
-        <p>Kategori : {{ $kategori->nama }}</p>
+        <p>Penerbit : {{ $penerbit->nama }}</p>
         <hr>
+        <p>Nomor Telepon : {{ $penerbit->no_telp }}</p>
+        <hr>
+        <p>ALamat : {{ $penerbit->alamat }}</p>
      </div>
      
 </div>
     <div class="box-footer text-right  ml-3 mr-3 mb-3">
-                <a href="/kategori" class="btn btn-primary">Kembali</a>
+                <a href="/penerbit" class="btn btn-primary">Kembali</a>
               </div>
     </div>
 @endsection

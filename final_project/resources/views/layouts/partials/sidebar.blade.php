@@ -37,14 +37,14 @@
                                     </a>
                                 </li><hr>
                                 <li class="">
-                                    <a href="index.html" class="waves-effect waves-dark">
+                                    <a href="{{ route("kategori.index") }}" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-vector"></i><b>D</b></span>
                                         <span class="pcoded-mtext">Kategori</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li><hr>
                                 <li class="">
-                                    <a href="index.html" class="waves-effect waves-dark">
+                                    <a href="{{ route("penerbit.index") }}" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-ruler-pencil"></i><b>D</b></span>
                                         <span class="pcoded-mtext">Penerbit</span>
                                         <span class="pcoded-mcaret"></span>
