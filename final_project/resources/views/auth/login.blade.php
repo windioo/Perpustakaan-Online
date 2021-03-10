@@ -147,7 +147,7 @@
                                     <div class="row m-t-10">
                                         <div class="col-12">
                                             <div class="text-left">
-                                                <span>Don't Have Account Yet? </span><a href="{{ route('register') }}">Register Here</a>
+                                                <span>Don't Have Account Yet ? </span><a href="{{ route('register') }}">Register Here</a>
                                             </div>
                                         </div>
                                     </div>

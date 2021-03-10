@@ -66,6 +66,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        dd($data);
         $newuser = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -75,10 +76,10 @@ class RegisterController extends Controller
         $idu = User::where('email', $data['email'])->first()->id;
         Profil::create([
             'nama'=>$data['name'],
-            'nik'=>'',
-            'alamat'=>'',
+            'nik'=>$data['nik'],
+            'alamat'=>$data['alamat'],
             'jenis_kelamin'=> $data['jenis_kelamin'],
-            'telp'=>'',
+            'telp'=>$data['telp'],
             'foto'=>'default.jpg',
             'is_active'=>'0',
             'user_id'=> $idu
