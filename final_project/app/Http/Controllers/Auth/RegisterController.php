@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'jenis_kelamin' => ['required'],
         ]);
     }
 
@@ -69,13 +70,14 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'role' => 'member',
         ]);
         $idu = User::where('email', $data['email'])->first()->id;
         Profil::create([
             'nama'=>$data['name'],
             'nik'=>'',
             'alamat'=>'',
-            'jenis_kelamin'=>'Laki-Laki',
+            'jenis_kelamin'=> $data['jenis_kelamin'],
             'telp'=>'',
             'foto'=>'default.jpg',
             'is_active'=>'0',

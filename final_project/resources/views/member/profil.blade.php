@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts-member.master')
 
 @section('content')
 <div class="container-fluid">
@@ -26,6 +26,11 @@
                     <div class="card-body">
                         <h4 class="d-flex justify-content-center">Profil Member</h4>
                         <hr>
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <form class="form-group" method="POST" action="/profil/{{$profil->id}}">
                         @method('PUT')
                         @csrf
