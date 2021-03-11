@@ -33,7 +33,7 @@
                       <button type="button" class="btn btn-danger btn-sm m-sm-1 btn-modal" 
                           data-url="{{route('koleksi.update',['koleksi' => $data->id ])}}" 
                           data-ulasan="{{$data->ulasan}}" data-rating="{{$data->rating}}" data-judul="{{$data->buku->judul}}">
-                        Beri Ulasan
+                        Tandai Selesai
                       </button>
               
                     </td>
