@@ -3,7 +3,9 @@
 @section('content')
 <div class="container-fluid">
     <div class="ml-3 pt-5 mr-3">
-        <div class="card">
+        <h3 class="">Dashboard</h3>
+        <h5> Helo, Welcome {{ Auth::user()->name}}</h5>
+        <div class="card mt-3">
             <div class="card-header with-border">
                 <h3 class="card-title">List Buku</h3>
                 <hr>

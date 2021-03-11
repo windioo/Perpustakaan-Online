@@ -47,31 +47,31 @@ class BukuController extends Controller
     public function store(Request $request)
     {
         
-         $request->validate([
-                'judul' => 'required|unique:bukus',
-                'deskripsi' => 'required',
-                'penulis' => 'required',
-                'tahun' => 'required',
-                'sampul' => 'image',
-                'file' => 'required'
+        $request->validate([
+            'judul' => 'required|unique:bukus',
+            'deskripsi' => 'required',
+            'penulis' => 'required',
+            'tahun' => 'required',
+            'sampul' => 'image',
+            'file' => 'required'
+        ]);
+        $imgName = $request->sampul->getClientOriginalName() . '-' . time() . '.' . $request->sampul->extension(); 
+        $request->sampul->move(public_path('image'), $imgName);
+
+        $bukuName = $request->file->getClientOriginalName() . '-' . time() . '.' . $request->file->extension(); 
+        $request->file->move(public_path('book'), $bukuName);
+
+        $buku = Buku::create([
+                "judul" => $request['judul'],
+                'deskripsi' => $request['deskripsi'],
+                'penulis' => $request['penulis'],
+                'tahun' => $request['tahun'],
+                'kategori_id' => $request['kategori_id'],
+                'penerbit_id' => $request['penerbit_id'],
+                'sampul' => $imgName,
+                'file' => $bukuName
             ]);
-            $imgName = $request->sampul->getClientOriginalName() . '-' . time() . '.' . $request->sampul->extension(); 
-            $request->sampul->move(public_path('image'), $imgName);
-
-            $bukuName = $request->file->getClientOriginalName() . '-' . time() . '.' . $request->file->extension(); 
-            $request->file->move(public_path('book'), $bukuName);
-
-             $buku = Buku::create([
-                        "judul" => $request['judul'],
-                        'deskripsi' => $request['deskripsi'],
-                        'penulis' => $request['penulis'],
-                        'tahun' => $request['tahun'],
-                        'kategori_id' => $request['kategori_id'],
-                        'penerbit_id' => $request['penerbit_id'],
-                        'sampul' => $imgName,
-                        'file' => $bukuName
-                    ]);
-            return redirect('/buku')->with('success','Data Buku Berhasil Disimpan!');
+        return redirect('/buku')->with('success','Data Buku Berhasil Disimpan!');
     }
 
     /**
@@ -199,7 +199,7 @@ class BukuController extends Controller
      */
     public function destroy($id)
     {
-         $buku = Buku::destroy($id);
+        $buku = Buku::destroy($id);
         return redirect('/buku')->with('success','Berhasil Di Dihapus!');
     }
 }
