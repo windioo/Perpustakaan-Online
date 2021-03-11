@@ -52,7 +52,8 @@ class UserDashboardController extends Controller
      */
     public function show($id)
     {
-        //
+        $buku = Buku::find($id);
+        return view('member.dash.show', compact('buku'));
     }
 
     /**
