@@ -18,7 +18,7 @@
                 <thead class="bg-dark text-light"><tr>
                   <th style="width: 10px">No</th>
                   <th>Buku</th>
-                  <th>Created at</th>
+                  <th>Selesai dibaca</th>
                   <th style="width: 40px">Actions</th>
                 </tr></thead>
                 <tbody>
@@ -26,7 +26,7 @@
                 <tr>
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $data->buku->judul }}</td>
-                    <td>{{ $data->created_at }}</td>
+                    <td>{{ $data->updated_at }}</td>
                     <td style="display: flex">
                         
                       <a href="/member/{{ $data->id }}" class="btn btn-info btn-sm m-sm-1">Baca</a>
