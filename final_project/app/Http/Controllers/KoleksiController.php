@@ -15,7 +15,7 @@ class KoleksiController extends Controller
      */
     public function index()
     {
-        $koleksi = UserBuku::where('user_id', Auth::id())->get();
+        $koleksi = UserBuku::where('user_id', Auth::id())->where('is_read','1')->get();
         return view('layoutsmember.koleksi.index',compact('koleksi'));
     }
 
@@ -42,7 +42,7 @@ class KoleksiController extends Controller
             'buku_id' => $request->id
         ]);
 
-        return redirect('/dashboard');
+        return redirect('/dashboard')->with('success','Buku Berhasil Disimpan!');;
     }
 
     /**
@@ -76,7 +76,13 @@ class KoleksiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $koleksi = UserBuku::where('id', $id)->update([
+            'rating' => $request->star,
+            'ulasan' => $request->ulasan,
+            'is_read' => '0'
+        ]);
+        
+        return redirect(route('koleksi.index'))->with('success','Ulasan Berhasil Disimpan!');
     }
 
     /**
