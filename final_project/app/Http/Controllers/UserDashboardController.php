@@ -19,7 +19,7 @@ class UserDashboardController extends Controller
      */
     public function index()
     {
-        $buku = Buku::paginate(10);
+        $buku = Buku::paginate(12);
         return view('member.dashboard', compact('buku'));
     }
 

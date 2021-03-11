@@ -11,7 +11,7 @@
                         <hr>
                     </div>
                     <div class="card-body">
-                        <img class="img-fluid rounded" src="#" alt="">
+                        <img class="img-fluid rounded" src="{{ asset('image/'.$buku->sampul)}}" alt="">
                     </div>
                 </div>
             </div>

@@ -8,35 +8,32 @@
                 <h3 class="card-title">List Buku</h3>
                 <hr>
             </div>
-            <div class="card-body">
-                <table class="table table-hover">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Judul</th>
-                            <th scope="col">Deskripsi</th>
-                            <th scope="col">Penulis</th>
-                            <th scope="col">Tahun</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($buku as $key=>$value)
-                        <tr>
-                            <th scope="row">{{$key +1}}</th>
-                            <td>{{$value->judul}}</td>
-                            <td>{{$value->deskripsi}}</td>
-                            <td>{{$value->penulis}}</td>
-                            <td>{{$value->tahun}}</td>
-                            <td><a href="/dashboard/{{$value->id}}/show" class="btn btn-info rounded">Show</a></td>
-                        </tr>
-                    @endforeach 
-                    </tbody>
-                </table>
-                <hr>
-                {{$buku->links()}}
-            </div>
         </div>
+        <div class="row">
+            @foreach($buku as $key=>$value)
+            <div class="col-md-6 col-lg-3 col-sm-12">
+                <div class="card shadow">
+                    <img class="card-img-top" src="{{ asset('/image/'.$value->sampul)}}" style="width:100%; height:350px">
+                    <div class="card-body">
+                        <a href="/dashboard/{{$value->id}}/show" class="card-title"><h5>{{$value->judul}}</h5></a>
+                        <hr>
+                        <span><b>Penulis : </b>{{$value->penulis}}</span><br>
+                        <span><b>Tahun : </b>{{$value->tahun}}</span>
+                        <hr>
+                        <center>
+                            <a href="/dashboard/{{$value->id}}/show" class="btn btn-primary">Read Book</a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            @endforeach 
+        </div>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                    {{ $buku->links() }}
+            </div>
+        </div> 
     </div>
 </div>
 
