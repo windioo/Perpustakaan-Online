@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="ml-3 pt-5 mr-3">
+<div class="ml-3 pt-5 mr-3">
  <div class="card card-primary ">
             <div class="card-header with-border ">
               <h3 class="card-title ">Buat Kategori Buku</h3>

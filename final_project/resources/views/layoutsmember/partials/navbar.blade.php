@@ -84,17 +84,17 @@
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
-                                    <li class="waves-effect waves-light">
+                                    {{-- <li class="waves-effect waves-light">
                                         <a href="#!">
                                             <i class="ti-settings"></i> Settings
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="waves-effect waves-light">
                                         <a href="user-profile.html">
                                             <i class="ti-user"></i> Profile
                                         </a>
                                     </li>
-                                    <li class="waves-effect waves-light">
+                                    {{-- <li class="waves-effect waves-light">
                                         <a href="email-inbox.html">
                                             <i class="ti-email"></i> My Messages
                                         </a>
@@ -103,7 +103,7 @@
                                         <a href="auth-lock-screen.html">
                                             <i class="ti-lock"></i> Lock Screen
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="waves-effect waves-light">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
