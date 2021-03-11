@@ -70,7 +70,7 @@
                   </div> 
                 <div class="form-group ml-3 mr-3 mt-3">
                   <label for="exampleInputEmail1">Upload Sampul</label>
-                  <input type="file" class="form-control-file mb-2" id="sampul" name="sampul" required>
+                  <input type="file" class="form-control-file mb-2" id="sampul" name="sampul" required accept="image/*">
                   <img src="{{ asset('image/'. $buku->sampul) }}" width="200">
                     @error('sampul')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="form-group ml-3 mr-3 mt-3">
                   <label for="exampleInputEmail1">Upload Buku</label>
-                   <input type="text" class="form-control-file mb-2 col-2" disabled id="file" name="file" value="{{ $buku->file }}" required>
+                   <input type="text" class="form-control-file mb-2 col-2" disabled id="file" name="file" value="{{ $buku->file }}" required accept="application/pdf">
                    <input type="file" class="form-control-file" id="file" name="file">
                     @error('file')
                         <div class="alert alert-danger">{{ $message }}</div>

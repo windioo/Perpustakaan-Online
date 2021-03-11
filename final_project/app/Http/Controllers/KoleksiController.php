@@ -16,7 +16,7 @@ class KoleksiController extends Controller
     public function index()
     {
         $koleksi = UserBuku::where('user_id', Auth::id())->where('is_read','1')->get();
-        return view('layoutsmember.koleksi.index',compact('koleksi'));
+        return view('member.koleksi.index',compact('koleksi'));
     }
 
     /**

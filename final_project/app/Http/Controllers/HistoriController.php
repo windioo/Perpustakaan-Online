@@ -16,7 +16,7 @@ class HistoriController extends Controller
     public function index()
     {
         $histori = UserBuku::where('user_id', Auth::id())->where('is_read','0')->get();
-        return view('layoutsmember.histori.index',compact('histori'));
+        return view('member.histori.index',compact('histori'));
     }
 
     /**

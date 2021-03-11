@@ -69,14 +69,14 @@
                 </div> 
                  <div class="form-group ml-3 mr-3 mt-3">
                   <label for="exampleInputEmail1">Upload Sampul</label>
-                  <input type="file" class="form-control-file" id="sampul" name="sampul">
+                  <input type="file" class="form-control-file" id="sampul" name="sampul" accept="image/*" >
                     @error('sampul')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                  <div class="form-group ml-3 mr-3 mt-3">
                   <label for="exampleInputEmail1">Upload Buku</label>
-                   <input type="file" class="form-control-file" id="file" name="file">
+                   <input type="file" class="form-control-file" id="file" name="file" accept="application/pdf">
                     @error('file')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
