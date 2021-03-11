@@ -20,7 +20,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = DB::table('kategoris')->get();
+        $kategori = Kategori::get();
         // $user = Auth::user();
         // $kategori = $user->kategori;
          return view('kategori/index', compact('kategori'));

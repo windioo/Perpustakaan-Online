@@ -15,6 +15,9 @@ class Buku extends Model
     public function user(){
         return $this->belongsToMany('App\User');
     }
+    public function komentar_buku(){
+        return $this->hasMany('App\Komentar_buku');
+    }
     protected $table = 'bukus';
     protected $guarded = [];
 }

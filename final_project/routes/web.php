@@ -15,20 +15,23 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::resource('kategori','KategoriController');
-Route::resource('penerbit','PenerbitController');
-Route::resource('buku','BukuController');
-Route::get('/buku/{id}/editbk','BukuController@editbk');
-Route::put('/buku/{id}','BukuController@updatebk');
-Route::resource('member','MemberController');
-Route::resource('dashadmin','DashAdminController');
-
 Auth::routes();
 
+
+// Route::group(['middleware' => ['auth','cekrole:petugas']], function(){
+    Route::resource('kategori','KategoriController');
+    Route::resource('penerbit','PenerbitController');
+    Route::resource('buku','BukuController');
+    Route::resource('dashadmin','DashAdminController');
+    Route::resource('member','MemberController');
+// });
+
+// Route::group(['middleware' => ['auth','cekrole:member']], function(){
 Route::get('/home', 'UserDashboardController@index')->name('home');
 #dashboard route
 Route::get('/dashboard', 'UserDashboardController@index');
 Route::get('/dashboard/{id}/show', 'UserDashboardController@show');
+Route::post('/dashboard/{id}/show', 'KomentarBukuController@update');
 
 #profile route
 Route::get('/profil', 'ProfilController@index');
@@ -38,5 +41,8 @@ Route::put('/profil/{id}/updatefoto', 'ProfilController@updatefoto');
 #koleksi route
 Route::resource('/koleksi','KoleksiController')->except(['store']);
 Route::post('/koleksi/{id}/add', 'KoleksiController@store')->name('add.book');
+
+// });
+
 
 
