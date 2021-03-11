@@ -41,11 +41,11 @@
                             </div>
                             <div class="col-6">
                                 <label for="kategori">Kategori Buku : </label>
-                                <input type="text" readonly class="form-control" id="kategori" name="kategori" value="">
+                                <input type="text" readonly class="form-control" id="kategori" name="kategori" value="{{$buku->kategori}}">
                             </div>
                             <div class="col-6">
                                 <label for="penerbit">Penerbit Buku : </label>
-                                <input type="text" readonly class="form-control" id="penerbit" name="penerbit" value="">
+                                <input type="text" readonly class="form-control" id="penerbit" name="penerbit" value="{{$buku->penerbit}}">
                             </div>
                         </form>
                         <hr>
