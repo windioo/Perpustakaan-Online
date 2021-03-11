@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Penerbit;
 use App\Kategori;
 use App\Buku;
+use App\User;
 
 class DashAdminController extends Controller
 {
@@ -23,7 +24,8 @@ class DashAdminController extends Controller
          $count_penerbit = Penerbit::get()->count();
          $count_kategori = Kategori::get()->count();
          $count_buku = Buku::get()->count();
-         return view('dashadmin',compact('count_penerbit','count_kategori','count_buku'));
+         $count_user = User::get()->count();
+         return view('dashadmin',compact('count_penerbit','count_kategori','count_buku','count_user'));
     }
 
     /**

@@ -12,7 +12,7 @@
             <div class="card bg-c-red total-card">
                 <div class="card-block">
                     <div class="text-left">
-                        <h4>489</h4>
+                        <h4>{{$count_user}}</h4>
                         <p class="m-0">Total Member</p>
                     </div>
                 
