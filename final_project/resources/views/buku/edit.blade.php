@@ -42,8 +42,35 @@
                   @enderror
                 </div>
                 <div class="form-group ml-3 mr-3 mt-3">
+
+                    <label for="exampleInputEmail1">Kategori</label>  
+                    <select name="kategori_id" id="kategori_id" class="form-control" >
+                      <option disabled value>Pilih Kategori</option>
+                      @foreach ($kat as $kt)
+                          <option value="{{ $kt->id }}" @if($buku->kategori_id == $kt->id ) selected @endif>{{ $kt->nama }}</option>
+                      @endforeach
+                      
+                    </select>
+                      @error('kategori_id')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
+                  </div> 
+                  <div class="form-group ml-3 mr-3 mt-3">
+                    <label for="exampleInputEmail1">Penerbit</label>  
+                    <select name="penerbit_id" id="penerbit_id" class="form-control" >
+                      <option disabled value>Pilih Penerbit</option>
+                      @foreach ($pen as $item)
+                          <option value="{{ $item->id }}" @if($buku->penerbit_id == $item->id ) selected @endif>{{ $item->nama }}</option>
+                      @endforeach
+                      
+                    </select>
+                      @error('penerbit_id')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
+                  </div> 
+                <div class="form-group ml-3 mr-3 mt-3">
                   <label for="exampleInputEmail1">Upload Sampul</label>
-                  <input type="file" class="form-control-file mb-2" id="sampul" name="sampul">
+                  <input type="file" class="form-control-file mb-2" id="sampul" name="sampul" required>
                   <img src="{{ asset('image/'. $buku->sampul) }}" width="200">
                     @error('sampul')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -51,7 +78,7 @@
                 </div>
                 <div class="form-group ml-3 mr-3 mt-3">
                   <label for="exampleInputEmail1">Upload Buku</label>
-                   <input type="text" class="form-control-file mb-2 col-2" disabled id="file" name="file" value="{{ $buku->file }}">
+                   <input type="text" class="form-control-file mb-2 col-2" disabled id="file" name="file" value="{{ $buku->file }}" required>
                    <input type="file" class="form-control-file" id="file" name="file">
                     @error('file')
                         <div class="alert alert-danger">{{ $message }}</div>

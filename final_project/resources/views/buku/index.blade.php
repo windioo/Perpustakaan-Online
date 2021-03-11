@@ -29,8 +29,8 @@
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $bk->judul }}</td>
                     <td>{{ $bk->penulis }}</td>
-                    <td><img src="/image/{{ $bk->sampul }}" alt="Sampul {{ $bk->judul }}" width="100"></td>
-                    <td >
+                    <td class="text-center"><img src="/image/{{ $bk->sampul }}" alt="Sampul {{ $bk->judul }}" width="50px"></td>
+                    <td style="display: flex">
                       <a href="/buku/{{ $bk->id }}" class="btn btn-info btn-sm m-sm-1 " >Show</a>
                       <a href="/buku/{{ $bk->id }}/edit" class="btn btn-success btn-sm m-sm-1">Edit</a>
                        {{-- <a href="/buku/{{ $bk->id }}/editbk" class="btn btn-success btn-sm m-sm-1">Edit Buku</a> --}}

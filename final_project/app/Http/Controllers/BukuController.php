@@ -21,8 +21,6 @@ class BukuController extends Controller
     public function index()
     {
         $buku = Buku::with('kategori','penerbit')->get();
-        // $user = Auth::user();
-        // $buku = $user->buku;
          return view('buku/index', compact('buku'));
     }
 
@@ -96,7 +94,9 @@ class BukuController extends Controller
     public function edit($id)
     {
         $buku = Buku::find($id);
-        return view('buku/edit', compact('buku'));
+        $kat = Kategori::all();
+        $pen = Penerbit::all();
+        return view('buku/edit', compact('buku','kat','pen'));
     }
 
     public function editbk($id)
