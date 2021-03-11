@@ -5,7 +5,7 @@
      <div class="ml-3 pt-5 mr-3">
         <div class="card card-primary">
             <div class="card-header with-border">
-              <h3 class="card-title">Table Koleksi</h3>
+              <h3 class="card-title">Table Histori</h3>
             </div>
             <!-- /.box-header -->
             <div class="card-body">
@@ -22,7 +22,7 @@
                   <th style="width: 40px">Actions</th>
                 </tr></thead>
                 <tbody>
-                @forelse ($koleksi as $key => $data)
+                @forelse ($histori as $key => $data)
                 <tr>
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $data->buku->judul }}</td>
@@ -30,17 +30,17 @@
                     <td style="display: flex">
                         
                       <a href="/member/{{ $data->id }}" class="btn btn-info btn-sm m-sm-1">Baca</a>
-                      <button type="button" class="btn btn-danger btn-sm m-sm-1 btn-modal" 
-                          data-url="{{route('koleksi.update',['koleksi' => $data->id ])}}" 
+                      <button type="button" class="btn btn-success btn-sm m-sm-1 btn-modal" 
+                          data-url="{{route('histori.update',['histori' => $data->id ])}}" 
                           data-ulasan="{{$data->ulasan}}" data-rating="{{$data->rating}}" data-judul="{{$data->buku->judul}}">
-                        Tandai Selesai
+                        Ulasan
                       </button>
               
                     </td>
                 </tr>    
                 @empty
                 <tr>
-                  <td colspan ="4" align="center">Belum ada koleksi</td>
+                  <td colspan ="4" align="center">Belum ada histori</td>
                 </tr>
                 @endforelse
                 </tbody>
@@ -74,7 +74,7 @@
             <input type="radio" name="star" id="star1" value="1"><label for="star1"></label>
           </div>
           <div style="margin-top:100px"></div>
-          <textarea rows="5" cols="5" class="form-control" name="ulasan" id="ulasan"  value="{{ old('ulasan','') }}" placeholder="Tulis ulasan"></textarea>
+          <textarea rows="5" cols="5" class="form-control" name="ulasan" id="ulasan"  value="{{ old('ulasan','') }}" placeholder="Tulis ulasan" readonly></textarea>
           @error('ulasan')
               <div class="alert alert-danger">{{ $message }}</div>
           @enderror
@@ -82,7 +82,6 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
       </div>
     </form>

@@ -44,9 +44,9 @@
                     </a>
                 </li><hr>
                 <li class="">
-                    <a href="#" class="waves-effect waves-dark">
+                    <a href="{{route('histori.index')}}" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-book"></i><b>D</b></span>
-                        <span class="pcoded-mtext">History</span>
+                        <span class="pcoded-mtext">Histori</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>

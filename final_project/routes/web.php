@@ -42,6 +42,9 @@ Route::put('/profil/{id}/updatefoto', 'ProfilController@updatefoto');
 Route::resource('/koleksi','KoleksiController')->except(['store']);
 Route::post('/koleksi/{id}/add', 'KoleksiController@store')->name('add.book');
 
+#histori route
+Route::resource('/histori','HistoriController');
+
 // });
 
 
