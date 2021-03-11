@@ -33,7 +33,7 @@ class LoginController extends Controller
             if(auth()->user()->role == "member"){
                 return url('/dashboard');
             } elseif (auth()->user()->role == "petugas"){
-                return url('/kategori');
+                return url('/dashadmin');
             }
         } else {
             return redirect(url('login'));

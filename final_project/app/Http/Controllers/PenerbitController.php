@@ -18,7 +18,7 @@ class PenerbitController extends Controller
      */
     public function index()
     {
-         $penerbit = DB::table('penerbits')->get();
+         $penerbit = Penerbit::get();
         // $user = Auth::user();
         // $penerbit = $user->penerbit;
          return view('penerbit/index', compact('penerbit'));
