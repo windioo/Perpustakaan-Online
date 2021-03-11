@@ -13,5 +13,5 @@ class Buku extends Model
         return $this->belongsTo('App\Penerbit');
     }
     protected $table = 'bukus';
-    protected $fillable = ['judul', 'deskripsi', 'penulis', 'tahun', 'sampul', 'file', 'kategori_id','penerbit_id'];
+    protected $guarded = [];
 }

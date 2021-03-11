@@ -5,7 +5,7 @@
                                 <div class="main-menu-header">
                                     <img class="img-80 img-radius" src="assets/images/avatar-4.jpg" alt="User-Profile-Image">
                                     <div class="user-details">
-                                        <span id="more-details">{{ Auth::user()->name}}<i class="fa fa-caret-down"></i></span>
+                                        {{-- <span id="more-details">{{ Auth::user()->name}}<i class="fa fa-caret-down"></i></span> --}}
                                     </div>
                                 </div>
                                 <div class="main-menu-content">
@@ -51,7 +51,7 @@
                                     </a>
                                 </li><hr>
                                 <li class="">
-                                    <a href="index.html" class="waves-effect waves-dark">
+                                    <a href="{{ route("buku.index") }}" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-book"></i><b>D</b></span>
                                         <span class="pcoded-mtext">Buku</span>
                                         <span class="pcoded-mcaret"></span>
