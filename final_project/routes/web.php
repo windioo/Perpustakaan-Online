@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Route::resource('kategori','KategoriController');
 Route::resource('penerbit','PenerbitController');
+Route::resource('buku','BukuController');
+Route::get('/buku/{id}/editbk','BukuController@editbk');
+Route::put('/buku/{id}','BukuController@updatebk');
+
 
 Auth::routes();
 
