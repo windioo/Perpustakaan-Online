@@ -19,8 +19,9 @@ class MemberController extends Controller
      */
     public function index()
     {
+        $profil = Profil::get();
         $member = User::where('role','member')->get();
-        return view('members.index',compact('member'));
+        return view('members.index',compact('member','profil'));
     }
 
     /**
@@ -53,7 +54,8 @@ class MemberController extends Controller
     public function show($id)
     {
         $member = User::find($id);
-        return view('members.show',compact('member'));
+        $profil = Profil::find($id);
+        return view('members.show',compact('member','profil'));
     }
 
     /**
