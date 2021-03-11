@@ -21,6 +21,7 @@ Route::resource('buku','BukuController');
 Route::get('/buku/{id}/editbk','BukuController@editbk');
 Route::put('/buku/{id}','BukuController@updatebk');
 Route::resource('member','MemberController');
+Route::resource('dashadmin','DashAdminController');
 
 Auth::routes();
 
