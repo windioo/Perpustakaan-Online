@@ -30,7 +30,7 @@
                                 </li>
                                     <hr>
                                 <li class="">
-                                    <a href="index.html" class="waves-effect waves-dark">
+                                    <a href="{{ route("member.index") }}" class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
                                         <span class="pcoded-mtext">Member</span>
                                         <span class="pcoded-mcaret"></span>
