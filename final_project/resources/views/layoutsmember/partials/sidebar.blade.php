@@ -37,7 +37,7 @@
                     </a>
                 </li><hr>
                 <li class="">
-                    <a href="#" class="waves-effect waves-dark">
+                    <a href="{{route('koleksi.index')}}" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-ruler-pencil"></i><b>D</b></span>
                         <span class="pcoded-mtext">Koleksi</span>
                         <span class="pcoded-mcaret"></span>

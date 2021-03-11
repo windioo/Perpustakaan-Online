@@ -1,0 +1,66 @@
+
+@extends('layoutsmember.mastermember')
+
+
+@section('content')
+     <div class="ml-3 pt-5 mr-3">
+        <div class="card card-primary">
+            <div class="card-header with-border">
+              <h3 class="card-title">Table Koleksi</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="card-body">
+              @if(session('success')) 
+                <div class="alert alert-success">
+                  {{ session('success') }}
+                </div>
+              @endif
+              <table class="table table-bordered">
+                <thead class="bg-dark text-light"><tr>
+                  <th style="width: 10px">No</th>
+                  <th>Buku</th>
+                  <th>Created at</th>
+                  <th>Status</th>
+                  <th style="width: 40px">Actions</th>
+                </tr></thead>
+                <tbody>
+                @forelse ($koleksi as $key => $data)
+                <tr>
+                    <td>{{ $key + 1 }}</td>
+                    <td>{{ $data->buku->judul }}</td>
+                    <td>{{ $data->created_at }}</td>
+                    @if($data->is_read == "0")
+                    <td>{{ 'Selesai'}}</td>
+                    @else
+                    <td>{{ 'Masih dibaca'}}</td>
+                    @endif
+                    <td style="display: flex">
+                      <a href="/member/{{ $data->id }}" class="btn btn-info btn-sm m-sm-1">Baca</a>
+                      <a href="/member/{{ $data->id }}" class="btn btn-success btn-sm m-sm-1">Tandai Selesai</a>
+                      <form action="/member/{{ $data->id }}" method="POST">
+                        @csrf
+                        @method('PUT') 
+                         @if($data->is_read == 0)
+                           <input type="submit" name="approve" value="approve" class="btn btn-success btn-sm m-sm-1">
+                         @else
+                           <input type="submit" name="approve" value="ulasan" class="btn btn-danger btn-sm m-sm-1">
+                         @endif
+                       </form>
+                      
+                    </td>
+                </tr>    
+                @empty
+                <tr>
+                  <td colspan ="4" align="center">Belum ada member</td>
+                </tr>
+                @endforelse
+                </tbody>
+              
+               
+              </table>
+            </div>
+            <!-- /.box-body -->
+            
+          </div>
+    </div>
+@endsection

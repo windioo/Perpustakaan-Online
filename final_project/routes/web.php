@@ -35,3 +35,8 @@ Route::get('/profil', 'ProfilController@index');
 Route::put('/profil/{id}', 'ProfilController@update');
 Route::put('/profil/{id}/updatefoto', 'ProfilController@updatefoto');
 
+#koleksi route
+Route::resource('/koleksi','KoleksiController')->except(['store']);
+Route::post('/koleksi/{id}/add', 'KoleksiController@store')->name('add.book');
+
+
