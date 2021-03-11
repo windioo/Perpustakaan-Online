@@ -5,8 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Buku;
+use App\Penerbit;
+use App\Kategori;
 class BukuController extends Controller
 {
+    public function __construct()
+        {
+         $this->middleware('auth');   // jika ingin beberapa yg di auth menggunakan only([])
+        }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,9 @@ class BukuController extends Controller
      */
     public function index()
     {
-        $buku = DB::table('bukus')->get();
+        $buku = Buku::with('kategori','penerbit')->get();
+        // $user = Auth::user();
+        // $buku = $user->buku;
          return view('buku/index', compact('buku'));
     }
 
@@ -25,7 +33,9 @@ class BukuController extends Controller
      */
     public function create()
     {
-        return view('buku.create');
+        $kat = Kategori::all();
+        $pen = Penerbit::all();
+        return view('buku.create', compact('kat','pen'));
     }
 
     /**
@@ -56,6 +66,8 @@ class BukuController extends Controller
                         'deskripsi' => $request['deskripsi'],
                         'penulis' => $request['penulis'],
                         'tahun' => $request['tahun'],
+                        'kategori_id' => $request['kategori_id'],
+                        'penerbit_id' => $request['penerbit_id'],
                         'sampul' => $imgName,
                         'file' => $bukuName
                     ]);

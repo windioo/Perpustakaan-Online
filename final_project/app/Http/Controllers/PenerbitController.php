@@ -7,6 +7,10 @@ use App\Penerbit;
 use DB;
 class PenerbitController extends Controller
 {
+        public function __construct()
+        {
+         $this->middleware('auth');   // jika ingin beberapa yg di auth menggunakan only([])
+        }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +19,8 @@ class PenerbitController extends Controller
     public function index()
     {
          $penerbit = DB::table('penerbits')->get();
+        // $user = Auth::user();
+        // $penerbit = $user->penerbit;
          return view('penerbit/index', compact('penerbit'));
     }
     

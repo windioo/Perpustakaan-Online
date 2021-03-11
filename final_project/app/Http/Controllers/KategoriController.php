@@ -9,6 +9,10 @@ use DB;
 
 class KategoriController extends Controller
 {
+    public function __construct()
+        {
+         $this->middleware('auth');   // jika ingin beberapa yg di auth menggunakan only([])
+        }
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +21,8 @@ class KategoriController extends Controller
     public function index()
     {
         $kategori = DB::table('kategoris')->get();
+        // $user = Auth::user();
+        // $kategori = $user->kategori;
          return view('kategori/index', compact('kategori'));
     }
 

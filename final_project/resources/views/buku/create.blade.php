@@ -40,6 +40,32 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div> 
+                <div class="form-group ml-3 mr-3 mt-3">
+                  <label for="exampleInputEmail1">Kategori</label>  
+                  <select name="kategori_id" id="kategori_id" >
+                    <option disabled value>Pilih Kategori</option>
+                    @foreach ($kat as $kt)
+                        <option value="{{ $kt->id }}">{{ $kt->nama }}</option>
+                    @endforeach
+                    
+                  </select>
+                    @error('kategori')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div> 
+                <div class="form-group ml-3 mr-3 mt-3">
+                  <label for="exampleInputEmail1">Penerbit</label>  
+                  <select name="penerbit_id" id="penerbit_id" >
+                    <option disabled value>Pilih Penerbit</option>
+                    @foreach ($pen as $item)
+                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                    @endforeach
+                    
+                  </select>
+                    @error('kategori')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div> 
                  <div class="form-group ml-3 mr-3 mt-3">
                   <label for="exampleInputEmail1">Upload Sampul</label>
                   <input type="file" class="form-control-file" id="sampul" name="sampul">
