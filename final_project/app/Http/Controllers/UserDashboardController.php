@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Buku;
 use App\Komentar_buku;
 use App\Profil;
+use PDF;
+use Response;
 
 class UserDashboardController extends Controller
 {

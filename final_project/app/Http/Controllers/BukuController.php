@@ -50,13 +50,13 @@ class BukuController extends Controller
             'deskripsi' => 'required',
             'penulis' => 'required',
             'tahun' => 'required',
-            'sampul' => 'image',
-            'file' => 'required'
+            'sampul' => 'required|mimes: jpeg,jpg,png| max:2048',
+            'file' => 'required|mimes:pdf| max:5000'
         ]);
-        $imgName = $request->sampul->getClientOriginalName() . '-' . time() . '.' . $request->sampul->extension(); 
+        $imgName = $request->judul. '-' . time() . '.' . $request->sampul->extension(); 
         $request->sampul->move(public_path('image'), $imgName);
 
-        $bukuName = $request->file->getClientOriginalName() . '-' . time() . '.' . $request->file->extension(); 
+        $bukuName = $request->judul. '-' . time() . '.' . $request->file->extension(); 
         $request->file->move(public_path('book'), $bukuName);
 
         $buku = Buku::create([
