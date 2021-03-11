@@ -33,12 +33,8 @@
                     <td style="display: flex">
                       <a href="/buku/{{ $bk->id }}" class="btn btn-info btn-sm m-sm-1 " >Show</a>
                       <a href="/buku/{{ $bk->id }}/edit" class="btn btn-success btn-sm m-sm-1">Edit</a>
-                       {{-- <a href="/buku/{{ $bk->id }}/editbk" class="btn btn-success btn-sm m-sm-1">Edit Buku</a> --}}
-                      <form action="/buku/{{ $bk->id }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <input type="submit" value="delete" class="btn btn-danger btn-sm m-sm-1">
-                      </form>
+                      <a href="/buku/delete/{{ $bk->id }}" class="btn btn-danger btn-sm m-sm-1 button delete-confirm">Delete</a>
+             
                       
                     </td>
                 </tr>    
@@ -57,3 +53,7 @@
           </div>
     </div>
 @endsection
+
+@push('script')
+  <script type="text/javascript" src="{{ asset('assets/js/sweetalert.js') }}"></script>
+@endpush

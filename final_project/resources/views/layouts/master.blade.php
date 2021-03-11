@@ -129,6 +129,8 @@
     <script src="{{ asset('assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <!-- Custom js -->
     <script type="text/javascript" src="{{ asset('assets/js/script.min.js') }}"></script>
+    <!--  SweetAlert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @stack('script')
 </body>
 

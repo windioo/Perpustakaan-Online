@@ -29,11 +29,8 @@
                     <td style="display: flex">
                       <a href="/penerbit/{{ $pen->id }}" class="btn btn-info btn-sm m-sm-1">Show</a>
                       <a href="/penerbit/{{ $pen->id }}/edit" class="btn btn-success btn-sm m-sm-1">Edit</a>
-                      <form action="/penerbit/{{ $pen->id }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <input type="submit" value="delete" class="btn btn-danger btn-sm m-sm-1">
-                      </form>
+                      <a href="/penerbit/delete/{{ $pen->id }}" class="btn btn-danger btn-sm m-sm-1 button delete-confirm">Delete</a>
+              
                       
                     </td>
                 </tr>    
@@ -52,3 +49,7 @@
           </div>
     </div>
 @endsection
+
+@push('script')
+  <script type="text/javascript" src="{{ asset('assets/js/sweetalert.js') }}"></script>
+@endpush
