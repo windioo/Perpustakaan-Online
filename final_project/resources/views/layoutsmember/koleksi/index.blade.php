@@ -14,7 +14,7 @@
                   {{ session('success') }}
                 </div>
               @endif
-              <table class="table table-bordered">
+              <table class="table table-bordered" id="example">
                 <thead class="bg-dark text-light"><tr>
                   <th style="width: 10px">No</th>
                   <th>Buku</th>
@@ -110,5 +110,11 @@
         $('#star'+$(this).data('rating')).attr('checked','checked')
       })
     })
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      $('#example').DataTable();
+    } );
   </script>
   @endpush

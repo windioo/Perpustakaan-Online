@@ -15,7 +15,7 @@
                 </div>
               @endif
               <a href="{{ route("buku.create") }}" class="btn btn-primary mt-2 mb-3">Buat Data Buku</a>
-              <table class="table table-bordered">
+              <table class="table table-bordered" id="example">
                 <thead class="bg-dark text-light"><tr>
                   <th style="width: 10px">No</th>
                   <th>Judul Buku</th>
@@ -56,4 +56,9 @@
 
 @push('script')
   <script type="text/javascript" src="{{ asset('assets/js/sweetalert.js') }}"></script>
+  <script>
+      $(document).ready(function() {
+        $('#example').DataTable();
+      } );
+    </script>
 @endpush

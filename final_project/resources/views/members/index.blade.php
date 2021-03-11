@@ -14,7 +14,7 @@
                   {{ session('success') }}
                 </div>
               @endif
-              <table class="table table-bordered">
+              <table class="table table-bordered" id="example">
                 <thead class="bg-dark text-light"><tr>
                   <th style="width: 10px">No</th>
                   <th>Nama member</th>
@@ -64,3 +64,13 @@
           </div>
     </div>
 @endsection
+
+@push('script')
+
+  <script>
+    $(document).ready(function() {
+      $('#example').DataTable();
+    } );
+  </script>
+    
+@endpush
