@@ -22,7 +22,8 @@
                             @csrf
                             <div class="form-group">
                                     <label for="judul">Judul Buku : </label>
-                                    <input type="text" readonly class="form-control" id="judul" name="judul" value="{{$buku->judul}}">            
+                                    <input type="text" readonly class="form-control" id="judul" name="judul" value="{{$buku->judul}}">  
+                                    {{-- <p id="judul" name="judul" value="">{{$buku->judul}}</p>           --}}
                             </div>
 
                             <div class="form-group">
