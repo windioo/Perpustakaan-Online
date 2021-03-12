@@ -62,7 +62,7 @@
                                                     <tr>
                                                         <td>
                                                             <div class="d-inline-block align-middle">
-                                                                <img src="assets/images/avatar-4.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                                                <img src="assets/images/Foto Profile/default.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
                                                                 <div class="d-inline-block">
                                                                     <h6>{{$data->buku->judul}}</h6>
                                                                     <p class="text-muted m-b-0">{{$data->buku->penulis}}</p>
