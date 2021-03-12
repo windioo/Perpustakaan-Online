@@ -46,7 +46,7 @@ class KoleksiController extends Controller
             'buku_id' => $request->id
         ]);
 
-        return redirect('/koleksi')->with('success','Buku Berhasil Disimpan!');
+        return redirect('/dashboard')->with('success','Buku Berhasil Disimpan!');
     }
 
     /**
