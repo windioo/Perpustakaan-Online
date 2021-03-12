@@ -99,11 +99,6 @@ class BukuController extends Controller
         return view('buku/edit', compact('buku','kat','pen'));
     }
 
-    public function editbk($id)
-    {
-        $buku = Buku::find($id);
-        return view('buku/editbk', compact('buku'));
-    }
 
     /**
      * Update the specified resource in storage.

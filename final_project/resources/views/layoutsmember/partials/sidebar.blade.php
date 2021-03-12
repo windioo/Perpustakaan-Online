@@ -5,17 +5,8 @@
                 <div class="main-menu-header">
                     <img class="img-80 img-radius" src="{{ asset('assets/images/avatar-4.jpg')}}" alt="User-Profile-Image">
                     <div class="user-details">
-                        <span id="more-details">{{ Auth::user()->name}}<i class="fa fa-caret-down"></i></span>
+                        <span id="more-details">{{ Auth::user()->name}}</span>
                     </div>
-                </div>
-                <div class="main-menu-content">
-                    <ul>
-                        <li class="more-details">
-                            <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
-                            <a href="#!"><i class="ti-settings"></i>Settings</a>
-                            <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
             
