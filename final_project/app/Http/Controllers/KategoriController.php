@@ -20,10 +20,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = Kategori::get();
-        // $user = Auth::user();
-        // $kategori = $user->kategori;
-         return view('kategori/index', compact('kategori'));
+        $kategori = Kategori::orderBy('id','DESC')->get();
+        return view('kategori/index', compact('kategori'));
     }
 
     /**
@@ -75,7 +73,7 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-         $kategori = Kategori::find($id);
+        $kategori = Kategori::find($id);
         return view('kategori/edit', compact('kategori'));
     }
 
@@ -95,7 +93,7 @@ class KategoriController extends Controller
                     "nama"=>$request['nama']
             ]);
 
-            return redirect('/kategori')->with('success','Berhasil Di Ubah!');
+            return redirect()->route('kategori.index')->with('success','Berhasil Di Ubah!');
     }
 
     /**
@@ -107,6 +105,6 @@ class KategoriController extends Controller
     public function destroy($id)
     {
         $kategori = Kategori::destroy($id);
-        return redirect('/kategori')->with('success','Berhasil Di Dihapus!');
+        return redirect()->route('kategori.index')->with('success','Berhasil Di Dihapus!');
     }
 }

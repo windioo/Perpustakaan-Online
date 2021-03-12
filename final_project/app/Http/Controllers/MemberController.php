@@ -19,9 +19,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $profil = Profil::get();
-        $member = User::where('role','member')->get();
-        return view('members.index',compact('member','profil'));
+        $member = User::where('role','member')->orderBy('id','DESC')->get();
+        return view('members.index',compact('member'));
     }
 
     /**

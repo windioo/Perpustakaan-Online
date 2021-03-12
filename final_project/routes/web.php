@@ -20,7 +20,7 @@ Auth::routes();
 
 // Route::group(['middleware' => ['auth','cekrole:petugas']], function(){
 Route::resource('kategori','KategoriController')->except(['delete']);
-Route::get('kategori/delete/{id}', 'KategoriController@destroy');
+Route::get('kategori/delete/{kategori}', 'KategoriController@destroy')->name('kategori.delete');
 Route::resource('penerbit','PenerbitController')->except(['delete']);
 Route::get('penerbit/delete/{id}', 'PenerbitController@destroy');
 Route::resource('buku','BukuController')->except(['delete']);

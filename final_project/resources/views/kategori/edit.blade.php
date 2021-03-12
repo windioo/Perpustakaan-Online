@@ -10,7 +10,7 @@
             
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="/kategori/{{ $kategori->id }}" method="POST">
+            <form role="form" action="{{route('kategori.update',['kategori'=> $kategori->id])}}" method="POST">
                 @csrf
                 @method('PUT')
               <div class="box-body">
@@ -24,7 +24,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer text-right  ml-3 mr-3 mb-3">
-                  <a href="/kategori" class="btn btn-default ml-3">Kembali</a>
+                  <a href="{{route('kategori.index')}}" class="btn btn-default ml-3">Kembali</a>
                 <button type="submit" class="btn btn-primary ml-3">Submit</button>
               </div>
             </form>

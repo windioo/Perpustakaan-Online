@@ -9,7 +9,7 @@
             
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="/kategori" method="POST">
+            <form role="form" action="{{route('kategori.store')}}" method="POST">
                 @csrf
               <div class="box-body">
                 <div class="form-group ml-3 mr-3 mt-3">
@@ -22,7 +22,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer text-right  ml-3 mr-3 mb-3">
-                <a href="/kategori" class="btn btn-default ml-3">Kembali</a>
+                <a href="{{route('kategori.index')}}" class="btn btn-default ml-3">Kembali</a>
                 <button type="submit" class="btn btn-primary ml-3">Submit</button>
               </div>
             </form>
