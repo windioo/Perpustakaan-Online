@@ -28,10 +28,10 @@
                     <td>{{ $data->buku->judul }}</td>
                     <td>{{ $data->created_at }}</td>
                     <td style="display: flex">
-                      <form method="POST" action="/dashboard/{{$data->buku_id}}/download" target="_blank">
+                      <form method="POST" action="/koleksi/{{$data->id}}/view" target="_blank">
                       @csrf
-                          <button type="submit" name="submit"  class="btn btn-info btn-sm m-sm-1">Baca </button>
-                      </form>
+                        <button type="submit" name="submit" class="btn btn-info btn-sm m-sm-1">Baca</button>
+                      </form>  
                       <button type="button" class="btn btn-danger btn-sm m-sm-1 btn-modal" 
                           data-url="{{route('koleksi.update',['koleksi' => $data->id ])}}" 
                           data-ulasan="{{$data->ulasan}}" data-rating="{{$data->rating}}" data-judul="{{$data->buku->judul}}">
