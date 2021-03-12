@@ -36,6 +36,7 @@ Route::get('/dashboard', 'UserDashboardController@index');
 Route::get('/dashboard/{id}/show', 'UserDashboardController@show');
 Route::post('/dashboard/{id}/show', 'KomentarBukuController@update');
 Route::get('/dashboard/cari', 'UserDashboardController@cari');
+Route::post('/dashboard/{id}/download', 'UserDashboardController@downloadfile');
 
 #profile route
 Route::get('/profil', 'ProfilController@index');

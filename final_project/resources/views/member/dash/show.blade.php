@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <h4 class="d-flex justify-content-center">Informasi Buku</h4>
                         <hr>
-                        <form action="{{route('add.book',['id' => $buku->id])}}" method="POST">
+                        <form action="{{route('add.book',['id' => $buku->id])}}" method="POST" target="_blank">
                             @csrf
                             <div class="form-group">
                                     <label for="judul">Judul Buku : </label>
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="box-footer text-right  ml-3 mb-3">
-                                <a href="/penerbit" class="btn btn-default ml-3">Kembali</a>
+                                <a href="/dashboard" class="btn btn-default ml-3">Kembali</a>
                                 <button type="submit" class="btn btn-primary ml-3">Read Book</button>
                             </div>
                         </form>

@@ -10,6 +10,7 @@ use App\Profil;
 use PDF;
 use Response;
 use DB;
+use App\UserBuku;
 
 class UserDashboardController extends Controller
 {
@@ -47,6 +48,15 @@ class UserDashboardController extends Controller
         }
 
         return view('member.dashboard', compact('buku'));
+    }
+    public function downloadfile($id){
+        $userbuku = UserBuku::firstOrCreate([
+            'user_id' => Auth::id(),
+            'buku_id' => $id
+        ]);
+        $filename = Buku::find($id);
+        $file = public_path().'/book/'.$filename->file;
+        return response()->download($file);
     }
     /**
      * Show the form for creating a new resource.
