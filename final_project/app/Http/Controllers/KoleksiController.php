@@ -51,7 +51,7 @@ class KoleksiController extends Controller
         
         $filename = Buku::find($request->id);
         $file = public_path().'/book/'.$filename->file;
-        return response()->download($file);
+        return response()->file($file);
     }
 
     /**
