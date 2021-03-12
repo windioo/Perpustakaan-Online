@@ -67,8 +67,12 @@
                                         <span><b>Rating : </b>{{ceil($value->total_rating) ?? 0}} / 5 <i class="ti-star"></i></span>
                                         <hr>
                                         <center>
-                                            <a href="{{ asset('/book/'.$value->file)}}" class="btn btn-info rounded btn-sm mr-1" target="_blank"><i class="ti-eye"></i>Preview</a>
-                                            <a href="/dashboard/{{$value->id}}/show" class="btn btn-success rounded btn-sm mt-2"><i class="ti-bookmark"></i> Read Book</a>
+                                            <a href="/dashboard/{{$value->id}}/show" class="btn btn-info rounded btn-sm mr-1" ><i class="ti-eye"></i>Preview</a>
+                                            <form method="POST" action="/dashboard/{{$value->id}}/download" target="_blank">
+                                            @csrf
+                                                <button type="submit" name="submit" class="btn btn-success rounded btn-sm mt-2"><i class="ti-bookmark"></i>Read Book </button>
+                                            </form>
+                                            <!--<a href="" class="btn btn-success rounded btn-sm mt-2" target="_blank"><i class="ti-bookmark"></i> Read Book</a>-->
                                         </center>
                                     </div>
                                 </div>
