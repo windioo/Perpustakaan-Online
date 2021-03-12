@@ -2,11 +2,7 @@
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
     <title>ECLIB</title>
-=======
-    <title>Eclib</title>
->>>>>>> feb066d05a7503e0193a5b33590d0579038be73f
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
