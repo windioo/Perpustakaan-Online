@@ -36,8 +36,8 @@
                     <td>{{ 'Aktif'}}</td>
                     @endif
                     <td style="display: flex">
-                      <a href="/member/{{ $data->id }}" class="btn btn-info btn-sm m-sm-1">Show</a>
-                      <form action="/member/{{ $data->id }}" method="POST">
+                      <a href="{{route('member.show',['member' => $data->id ])}}" class="btn btn-info btn-sm m-sm-1">Show</a>
+                      <form action="{{route('member.update',['member' => $data->id ])}}" method="POST">
                         @csrf
                         @method('PUT') 
                          @if($data->profil->is_active == 0)

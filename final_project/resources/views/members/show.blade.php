@@ -25,7 +25,7 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        <form class="form-group" method="POST" action="/profil/{{$profil->id}}">
+                        <form class="form-group" method="POST" action="#">
                         @method('PUT')
                         @csrf
                             <label for="nama">Nama Lengkap : </label>

@@ -89,7 +89,7 @@ class MemberController extends Controller
         ]);
        }
         
-        return redirect('/member')->with('success','Berhasil Di Ubah!');
+        return redirect()->route('member.index')->with('success','Berhasil Di Ubah!');
         
     }
 
