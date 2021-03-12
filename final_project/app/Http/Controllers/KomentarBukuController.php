@@ -92,25 +92,8 @@ class KomentarBukuController extends Controller
         ->orderBy('komentar_bukus.created_at')
         ->get();
 
-        return view('member.dash.show', compact('buku','komen'));
-        /**$komentara = Komentar_buku::where('buku_id', $id)->orderBy('created_at','DESC')->get();
-        $idendity =[];
-        $comment =[];
-        foreach($komentara as $komen){
-            array_push($idendity, $komen->user_id);
-            array_push($comment, $komen->komentar);
-        }
-        $nama = [];
-        $foto = [];
-        foreach($idendity as $value){
-            array_push($nama, Profil::where('id', $value)->value('nama'));
-            array_push($foto, Profil::where('id', $value)->value('foto'));
-        }
-        $buku = Buku::find($id);
-        return view('member.dash.show', compact('buku'))
-        ->with('comment', $comment)
-        ->with('nama', $nama)
-        ->with('foto', $foto);**/
+        return redirect('/dashboard/'.$id.'/show');
+        
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\UserBuku;
+use App\Buku;
 
 class KoleksiController extends Controller
 {
@@ -45,8 +46,9 @@ class KoleksiController extends Controller
             'user_id' => Auth::id(),
             'buku_id' => $request->id
         ]);
-
-        return redirect('/dashboard')->with('success','Buku Berhasil Disimpan!');;
+        $filename = Buku::find($request->id);
+        $file = public_path().'/book/'.$filename->file;
+        return response()->download($file);
     }
 
     /**

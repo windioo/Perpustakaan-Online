@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <h4 class="d-flex justify-content-center">Informasi Buku</h4>
                         <hr>
-                        <form action="{{route('add.book',['id' => $buku->id])}}" method="POST">
+                        <form action="{{route('add.book',['id' => $buku->id])}}" method="POST" target="_blank">
                             @csrf
                             <div class="form-group">
                                     <label for="judul">Judul Buku : </label>
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="box-footer text-right  ml-3 mb-3">
-                                <a href="/penerbit" class="btn btn-default ml-3">Kembali</a>
+                                <a href="/dashboard" class="btn btn-default ml-3">Kembali</a>
                                 <button type="submit" class="btn btn-primary ml-3">Read Book</button>
                             </div>
                         </form>
@@ -64,30 +64,45 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title text-center">Latest Comment</h3>
+                        <h4 class="card-title text-center">Latest Comment</h4>
                         <hr>
                     </div>
                     <div class="card-body">
                         <div class="col-12">
-                            <form method="POST" action="/dashboard/{{$buku->id}}/show">
+                            <form method="POST" action="/dashboard/{{$buku->id}}/komen">
                             @csrf 
+                            @method('PUT')
                                 <textarea id="komen" class="form-control" name="komen" rows="3" style="resize:none" placeholder="Tuliskan Komentar..."></textarea>
                                 <div class="d-flex justify-content-end mt-2">
-                                    <input type="submit" name="submit" class="btn btn-primary" value="Comment">
+                                    <input type="submit" name="submit" class="btn btn-primary" value="comment">
                                 </div>
                             </form>
                         </div>
-                        <hr>
-                       @foreach($komen as $key => $value)
-                        <div class="col-3">
-                            <img class="img-fluid rounded-circle" style="width:50px;height: 50px;" src="{{ asset('assets/images/Foto Profile/'.$value->foto)}}" alt="">
-                        </div>
-                        <div class="col-9">
-                            <h5>{{$value->nama}}</h5>
-                            <p>{{$value->komentar}}</p>
-                        </div>
-                        <hr>
-                        @endforeach
+                        
+
+                        <table class="table table-hover m-b-0 without-header mt-5">
+                                <tbody>
+                                    @foreach($comment as $key => $data)
+                                    <tr>
+                                        <td>
+                                            <div class="d-inline-block align-middle">
+                                                <img src="{{ asset('assets/images/Foto Profile/'.$data->user->profil->foto)}}" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                                <div class="d-inline-block">
+                                                    <h6>{{$data->user->name}}</h6>
+                                                    <p class="text-muted m-b-0">{{$data->komentar}}</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-right">
+                                            <h6 class="f-w-700">{{$data->created_at}}<i class="fas fa-level-down-alt text-c-red m-l-10"></i></h6>
+                                        </td>
+                                    </tr>
+                                   @endforeach
+                                </tbody>
+                            </table>         
+                                
+
+                     
                     </div>
                 </div>
             </div>
