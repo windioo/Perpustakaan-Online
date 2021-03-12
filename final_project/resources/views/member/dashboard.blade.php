@@ -71,7 +71,7 @@
                                                     <span><b>Rating : </b>{{ceil($value->total_rating) ?? 0}} / 5 <i class="ti-star"></i></span>
                                                     <hr>
                                                     <center>
-                                                        <a href="/dashboard/{{$value->id}}/show" class="btn btn-info btn-sm mr-2"><i class="ti-eye"></i>Preview</a>
+                                                        <a href="{{ asset('/book/'.$value->file)}}" class="btn btn-info btn-sm mr-2" target="_blank"><i class="ti-eye"></i>Preview</a>
                                                         <a href="/dashboard/{{$value->id}}/show" class="btn btn-success btn-sm"><i class="ti-bookmark"></i> Read Book</a>
                                                     </center>
                                                 </div>
