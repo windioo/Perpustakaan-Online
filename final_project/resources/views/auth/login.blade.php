@@ -11,7 +11,7 @@
       <meta name="author" content="" />
       <!-- Favicon icon -->
 
-      <link rel="icon" href="{{asset('assets/images/favicon.ico')}}" type="image/x-icon">
+      <link rel="icon" href="{{ asset('assets/images/icon.png') }}" type="image/x-icon">
       <!-- Google font-->
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
       <!-- Required Fremwork -->
@@ -100,7 +100,9 @@
                                 <div class="card-block">
                                     <div class="row m-b-20">
                                         <div class="col-md-12">
-                                            <h3 class="text-center">Login</h3>
+                                            <center>
+                                                <img class="rounded" style="max-width: 170px" src="{{ asset('assets/images/large-eclib.png')}}">
+                                            </center>
                                         </div>
                                     </div>
                                     <div class="form-group form-primary">
