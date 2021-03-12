@@ -62,7 +62,11 @@ class KoleksiController extends Controller
      */
     public function show($id)
     {
-        //
+        $buku_id = UserBuku::find($id);
+        $filename = Buku::where('id', $buku_id->buku_id)->first();
+        $file = $filename->file;
+        $path = $file = public_path().'/book/'.$file;
+        return response()->file($path);
     }
 
     /**

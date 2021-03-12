@@ -28,8 +28,11 @@
                     <td>{{ $data->buku->judul }}</td>
                     <td>{{ $data->updated_at }}</td>
                     <td style="display: flex">
-                        
-                      <a href="/member/{{ $data->id }}" class="btn btn-info btn-sm m-sm-1">Baca</a>
+
+                      <form method="POST" action="/koleksi/{{$data->id}}/view" target="_blank">
+                      @csrf
+                        <button type="submit" name="submit" class="btn btn-info btn-sm m-sm-1">Baca</button>
+                      </form>  
                       <button type="button" class="btn btn-success btn-sm m-sm-1 btn-modal" 
                           data-url="{{route('histori.update',['histori' => $data->id ])}}" 
                           data-ulasan="{{$data->ulasan}}" data-rating="{{$data->rating}}" data-judul="{{$data->buku->judul}}">
