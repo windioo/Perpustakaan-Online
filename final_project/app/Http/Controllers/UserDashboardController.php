@@ -9,6 +9,7 @@ use App\Komentar_buku;
 use App\Profil;
 use PDF;
 use Response;
+use DB;
 
 class UserDashboardController extends Controller
 {
@@ -23,7 +24,11 @@ class UserDashboardController extends Controller
      */
     public function index()
     {
-        $buku = Buku::paginate(12);
+        $buku =  Buku::select('bukus.*', DB::raw('SUM(rating)/COUNT(rating) as total_rating'))
+        ->leftJoin('user_bukus', 'user_bukus.buku_id', '=', 'bukus.id')
+        ->groupBy('bukus.id')
+        ->paginate(12);
+        
         return view('member.dashboard', compact('buku'));
     }
 

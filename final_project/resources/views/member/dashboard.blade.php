@@ -1,46 +1,91 @@
 @extends('layoutsmember.mastermember')
 
 @section('content')
-<div class="container-fluid">
-    <div class="ml-3 pt-5 mr-3">
-        <h3 class="">Dashboard</h3>
-        <h5> Helo, Welcome {{ Auth::user()->name}}</h5>
-        <div class="card mt-3">
-            <div class="card-header with-border">
-                <h3 class="card-title">List Buku</h3>
-                <hr>
-                <form class="form-inline d-flex justify-content-end" id="formItem" action="/dashboard/cari" method="GET">
-                    <input class="form-control mr-sm-2" value="" type="search" name="keyword" placeholder="Search"  id="keyword" aria-label="Search">
-                    <button class="btn btn-outline-success btn-sm my-2 my-sm-0" type="submit" id="searchItem"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            @foreach($buku as $key=>$value)
-            <div class="col-md-6 col-lg-3 col-sm-12">
-                <div class="card shadow">
-                    <img class="card-img-top" src="{{ asset('/image/'.$value->sampul)}}" style="width:100%; height:350px">
-                    <div class="card-body">
-                        <a href="/dashboard/{{$value->id}}/show" class="card-title"><h5>{{$value->judul}}</h5></a>
-                        <hr>
-                        <span><b>Penulis : </b>{{$value->penulis}}</span><br>
-                        <span><b>Tahun : </b>{{$value->tahun}}</span>
-                        <hr>
-                        <center>
-                            <a href="/dashboard/{{$value->id}}/show" class="btn btn-primary">Read Book</a>
-                        </center>
+<div class="page-header">
+        <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">Dashboard</h5>
+                        <p class="m-b-0">Helo, Welcome {{ Auth::user()->name}}</p>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="index.html"> <i class="fa fa-home"></i> </a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="#!">Dashboard</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            @endforeach 
         </div>
-        <hr>
-        <div class="card">
-            <div class="card-body">
-                    {{ $buku->links() }}
-            </div>
-        </div> 
     </div>
-</div>
+
+    <!-- Search -->
+    <div class="ml-3 pt-5 mr-3">
+        <div class="card card-primary ">
+                <div class="card-header with-border ">
+                  <h5 class="card-title ">Search Buku</h5>
+                </div>
+                       
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form" action="/dashboard/cari" method="GET">
+                  <div class="box-body">
+                    <div class="form-group ml-3 mr-3 mt-3">
+                      <input type="text" class="form-control" id="nama" name="keyword"  value="{{ old('keyword','') }}" placeholder="Search ...">
+                    </div> 
+                  </div>
+                  <!-- /.box-body -->
+                  <div class="box-footer text-right  ml-3 mr-3 mb-3">
+                    <button type="submit" class="btn btn-primary btn-sm ml-3">Search</button>
+                 </div>
+               </form>
+             </div>
+        </div>
+    
+     <!-- Search end -->
+
+     <!-- Page-header end -->
+     <div class="pcoded-inner-content">
+            <!-- Main-body start -->
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <!-- Page-body start -->
+                    <div class="page-body">
+                        <div class="row">
+                            @foreach($buku as $key=>$value)
+                            <div class="col-md-6 col-lg-3 col-sm-12">
+                                <div class="card shadow" style="">
+                                    <img class="card-img-top" src="{{ asset('/image/'.$value->sampul)}}" style="width:100%; height:350px">
+                                    <div class="card-body">
+                                        <a href="/dashboard/{{$value->id}}/show" class="card-title"><h5>{{$value->judul}}</h5></a>
+                                        <hr>
+                                        <span><b>Penulis : </b>{{$value->penulis}}</span><br>
+                                        <span><b>Rating : </b>{{ceil($value->total_rating) ?? 0}} / 5 <i class="ti-star"></i></span>
+                                        <hr>
+                                        <center>
+                                            <a href="{{ asset('/book/'.$value->file)}}" class="btn btn-info rounded btn-sm mr-2" target="_blank"><i class="ti-eye"></i>Preview</a>
+                                            <a href="/dashboard/{{$value->id}}/show" class="btn btn-success rounded btn-sm mt-2"><i class="ti-bookmark"></i> Read Book</a>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach 
+                        </div>
+                        <hr>
+                        <div class="card">
+                            <div class="card-body">
+                                {{ $buku->links() }}
+                            </div>
+                        </div> 
+                    </div>
+                    <!-- Page-body end -->
+                </div>
+                <div id="styleSelector"> </div>
+            </div>
+        </div>
 
 @endsection
