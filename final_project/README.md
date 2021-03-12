@@ -19,7 +19,7 @@ Perpustakaan Online
 
 # ERD
 * [Erd](https://drive.google.com/file/d/1A3MYIK8E208iT_UPc60O9aHRckR7D_lq/view)
-* atau dapat dilihat 
+* atau dapat dilihat public/assets/images/erd.PNG
 
 # UI/UX Template 
 * [File-Template](https://themewagon.com/themes/free-bootstrap-4-html-5-admin-dashboard-template-material-able/)

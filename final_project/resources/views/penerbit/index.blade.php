@@ -27,9 +27,9 @@
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $pen->nama }}</td>
                     <td style="display: flex">
-                      <a href="/penerbit/{{ $pen->id }}" class="btn btn-info btn-sm m-sm-1">Show</a>
-                      <a href="/penerbit/{{ $pen->id }}/edit" class="btn btn-success btn-sm m-sm-1">Edit</a>
-                      <a href="/penerbit/delete/{{ $pen->id }}" class="btn btn-danger btn-sm m-sm-1 button delete-confirm">Delete</a>
+                      <a href="{{route('penerbit.show',['penerbit' => $pen->id])}}" class="btn btn-info btn-sm m-sm-1">Show</a>
+                      <a href="{{route('penerbit.edit',['penerbit' => $pen->id])}}" class="btn btn-success btn-sm m-sm-1">Edit</a>
+                      <a href="{{route('penerbit.delete',['penerbit' => $pen->id])}}" class="btn btn-danger btn-sm m-sm-1 button delete-confirm">Delete</a>
               
                       
                     </td>

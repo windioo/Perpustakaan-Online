@@ -20,11 +20,11 @@ Auth::routes();
 
 // Route::group(['middleware' => ['auth','cekrole:petugas']], function(){
 Route::resource('kategori','KategoriController')->except(['delete']);
-Route::get('kategori/delete/{id}', 'KategoriController@destroy');
+Route::get('kategori/delete/{kategori}', 'KategoriController@destroy')->name('kategori.delete');
 Route::resource('penerbit','PenerbitController')->except(['delete']);
-Route::get('penerbit/delete/{id}', 'PenerbitController@destroy');
+Route::get('penerbit/delete/{penerbit}', 'PenerbitController@destroy')->name('penerbit.delete');
 Route::resource('buku','BukuController')->except(['delete']);
-Route::get('buku/delete/{id}', 'BukuController@destroy');
+Route::get('buku/delete/{buku}', 'BukuController@destroy')->name('buku.delete');
 Route::resource('dashadmin','DashAdminController');
 Route::resource('member','MemberController');
 // });

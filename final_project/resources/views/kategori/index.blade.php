@@ -27,10 +27,9 @@
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $kat->nama }}</td>
                     <td style="display: flex">
-                      <a href="/kategori/{{ $kat->id }}" class="btn btn-info btn-sm m-sm-1">Show</a>
-                      <a href="/kategori/{{ $kat->id }}/edit" class="btn btn-success btn-sm m-sm-1">Edit</a>
-                      <a href="/kategori/delete/{{ $kat->id }}" class="btn btn-danger btn-sm m-sm-1 button delete-confirm">Delete</a>
-                      
+                      <a href="{{route('kategori.show',['kategori'=> $kat->id])}}" class="btn btn-info btn-sm m-sm-1">Show</a>
+                      <a href="{{route('kategori.edit',['kategori'=> $kat->id])}}" class="btn btn-success btn-sm m-sm-1">Edit</a>
+                      <a href="{{route('kategori.delete',['kategori'=> $kat->id])}}" class="btn btn-danger btn-sm m-sm-1 button delete-confirm">Delete</a>  
                     </td>
                 </tr>    
                 @empty
