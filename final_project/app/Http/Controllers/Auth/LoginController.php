@@ -32,12 +32,12 @@ class LoginController extends Controller
         if(auth()->check()){
           
             if(auth()->user()->role == "member" && auth()->user()->profil->is_active){
-                return url('/dashboard');
+                return route('dashboard.index');
             } elseif (auth()->user()->role == "petugas"){
-                return url('/dashadmin');
+                return route('dashadmin.index');
             }
         } else {
-            return redirect(url('login'));
+            return redirect()->route('login');
         }
     }
 

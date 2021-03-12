@@ -31,9 +31,9 @@
                     <td>{{ $bk->penulis }}</td>
                     <td class="text-center"><img src="/image/{{ $bk->sampul }}" alt="Sampul {{ $bk->judul }}" width="50px"></td>
                     <td style="display: flex">
-                      <a href="/buku/{{ $bk->id }}" class="btn btn-info btn-sm m-sm-1 " >Show</a>
-                      <a href="/buku/{{ $bk->id }}/edit" class="btn btn-success btn-sm m-sm-1">Edit</a>
-                      <a href="/buku/delete/{{ $bk->id }}" class="btn btn-danger btn-sm m-sm-1 button delete-confirm">Delete</a>
+                      <a href="{{route('buku.show',['buku' => $bk->id] )}}" class="btn btn-info btn-sm m-sm-1 " >Show</a>
+                      <a href="{{route('buku.edit',['buku' => $bk->id] )}}" class="btn btn-success btn-sm m-sm-1">Edit</a>
+                      <a href="{{route('buku.delete',['buku' => $bk->id] )}}" class="btn btn-danger btn-sm m-sm-1 button delete-confirm">Delete</a>
              
                       
                     </td>

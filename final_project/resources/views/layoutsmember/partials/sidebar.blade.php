@@ -3,7 +3,7 @@
         <div class="pcoded-inner-navbar main-menu">
             <div class="">
                 <div class="main-menu-header">
-                    <img class="img-80 img-radius" src="{{ asset('assets/images/avatar-4.jpg')}}" alt="User-Profile-Image">
+                    <img class="img-80 img-radius" src="{{ asset('assets/images/Foto Profile/'.Auth::user()->profil->foto)}}" alt="User-Profile-Image">
                     <div class="user-details">
                         <span id="more-details">{{ Auth::user()->name}}</span>
                     </div>
@@ -13,7 +13,7 @@
             <div class="pcoded-navigation-label">Navigation</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="">
-                    <a href="/dashboard" class="waves-effect waves-dark">
+                    <a href="{{route('dashboard.index')}}" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                         <span class="pcoded-mtext">Dashboard</span>
                         <span class="pcoded-mcaret"></span>
@@ -21,7 +21,7 @@
                 </li>
                     <hr>
                 <li class="">
-                    <a href="/profil" class="waves-effect waves-dark">
+                <a href="{{route('profil.index')}}" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
                         <span class="pcoded-mtext">Profil</span>
                         <span class="pcoded-mcaret"></span>

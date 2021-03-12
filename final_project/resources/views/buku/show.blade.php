@@ -13,7 +13,10 @@
                           <img class="img-fluid rounded" src="{{ asset('image/'.$buku->sampul)}}" alt="">
                           <hr>
                           <center>
-                              <input type="submit" class="btn btn-primary rounded mx-auto d-block" name="submit" value="baca buku">
+                            <form method="POST" action="/dashboard/{{$buku->id}}/download" target="_blank">
+                            @csrf
+                                <button type="submit" name="submit" class="btn btn-primary rounded mx-auto d-block"></i>Baca Buku </button>
+                            </form>
                           </center>
                      </div>
                   </div>

@@ -22,9 +22,9 @@ Auth::routes();
 Route::resource('kategori','KategoriController')->except(['delete']);
 Route::get('kategori/delete/{kategori}', 'KategoriController@destroy')->name('kategori.delete');
 Route::resource('penerbit','PenerbitController')->except(['delete']);
-Route::get('penerbit/delete/{id}', 'PenerbitController@destroy');
+Route::get('penerbit/delete/{penerbit}', 'PenerbitController@destroy')->name('penerbit.delete');
 Route::resource('buku','BukuController')->except(['delete']);
-Route::get('buku/delete/{id}', 'BukuController@destroy');
+Route::get('buku/delete/{buku}', 'BukuController@destroy')->name('buku.delete');
 Route::resource('dashadmin','DashAdminController');
 Route::resource('member','MemberController');
 // });
@@ -32,14 +32,14 @@ Route::resource('member','MemberController');
 // Route::group(['middleware' => ['auth','cekrole:member']], function(){
 Route::get('/home', 'UserDashboardController@index')->name('home');
 #dashboard route
-Route::get('/dashboard', 'UserDashboardController@index');
+Route::get('/dashboard', 'UserDashboardController@index')->name('dashboard.index');
 Route::get('/dashboard/{id}/show', 'UserDashboardController@show');
 Route::put('/dashboard/{id}/komen', 'KomentarBukuController@update');
 Route::get('/dashboard/cari', 'UserDashboardController@cari');
 Route::post('/dashboard/{id}/download', 'UserDashboardController@downloadfile');
 
 #profile route
-Route::get('/profil', 'ProfilController@index');
+Route::get('/profil', 'ProfilController@index')->name('profil.index');
 Route::put('/profil/{id}', 'ProfilController@update');
 Route::put('/profil/{id}/updatefoto', 'ProfilController@updatefoto');
 

@@ -18,9 +18,7 @@ class PenerbitController extends Controller
      */
     public function index()
     {
-         $penerbit = Penerbit::get();
-        // $user = Auth::user();
-        // $penerbit = $user->penerbit;
+         $penerbit = Penerbit::orderBy('id','DESC')->get();
          return view('penerbit/index', compact('penerbit'));
     }
     
@@ -48,12 +46,12 @@ class PenerbitController extends Controller
                 'no_telp' =>'required',
                 'alamat' =>'required'
             ]);
-             $penerbit = Penerbit::create([
-                        "nama" => $request['nama'],
-                        "no_telp" => $request['no_telp'],
-                        "alamat" => $request['alamat']
-                    ]);
-            return redirect('/penerbit')->with('success','Penerbit Berhasil Disimpan!');
+        $penerbit = Penerbit::create([
+                   "nama" => $request['nama'],
+                   "no_telp" => $request['no_telp'],
+                   "alamat" => $request['alamat']
+               ]);
+        return redirect()->route('penerbit.index')->with('success','Penerbit Berhasil Disimpan!');
     }
 
     /**
@@ -95,13 +93,13 @@ class PenerbitController extends Controller
                 'no_telp' =>'required',
                 'alamat' =>'required'
                 ]);
-           $penerbit = Penerbit::where('id',$id)->update([
-                        "nama" => $request['nama'],
-                        "no_telp" => $request['no_telp'],
-                        "alamat" => $request['alamat']
-            ]);
+        $penerbit = Penerbit::where('id',$id)->update([
+                     "nama" => $request['nama'],
+                     "no_telp" => $request['no_telp'],
+                     "alamat" => $request['alamat']
+         ]);
 
-            return redirect('/penerbit')->with('success','Berhasil Di Ubah!');
+        return redirect()->route('penerbit.index')->with('success','Berhasil Di Ubah!');
     }
 
     /**
@@ -113,6 +111,6 @@ class PenerbitController extends Controller
     public function destroy($id)
     {
         $penerbit = Penerbit::destroy($id);
-        return redirect('/penerbit')->with('success','Berhasil Di Dihapus!');
+        return redirect()->route('penerbit.index')->with('success','Berhasil Di Dihapus!');
     }
 }
