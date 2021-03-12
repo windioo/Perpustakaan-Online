@@ -72,7 +72,7 @@
                             <form method="POST" action="/dashboard/{{$buku->id}}/komen">
                             @csrf 
                             @method('PUT')
-                                <textarea id="komen" class="form-control" name="komen" rows="3" style="resize:none" placeholder="Tuliskan Komentar..."></textarea>
+                                <textarea id="komen" class="description" name="komen" rows="3" style="resize:none" placeholder="Tuliskan Komentar..."></textarea>
                                 <div class="d-flex justify-content-end mt-2">
                                     <input type="submit" name="submit" class="btn btn-primary" value="comment">
                                 </div>
@@ -89,7 +89,7 @@
                                                 <img src="{{ asset('assets/images/Foto Profile/'.$data->user->profil->foto)}}" alt="user image" class="img-radius img-40 align-top m-r-15">
                                                 <div class="d-inline-block">
                                                     <h6>{{$data->user->name}}</h6>
-                                                    <p class="text-muted m-b-0">{{$data->komentar}}</p>
+                                                    <p class="text-muted m-b-0">{!!$data->komentar!!}</p>
                                                 </div>
                                             </div>
                                         </td>
@@ -111,3 +111,16 @@
 </div>
 
 @endsection
+
+@push('style')
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+@endpush
+
+@push('script')
+<script>
+    tinymce.init({
+        selector:'textarea.description',
+    });
+</script>    
+@endpush
