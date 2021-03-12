@@ -46,9 +46,12 @@ class KoleksiController extends Controller
             'user_id' => Auth::id(),
             'buku_id' => $request->id
         ]);
+
+        // return redirect('/dashboard')->with('success','Buku Berhasil Disimpan!');
+        
         $filename = Buku::find($request->id);
         $file = public_path().'/book/'.$filename->file;
-        return response()->download($file);
+        return response()->file($file);
     }
 
     /**
@@ -59,7 +62,11 @@ class KoleksiController extends Controller
      */
     public function show($id)
     {
-        //
+        $buku_id = UserBuku::find($id);
+        $filename = Buku::where('id', $buku_id->buku_id)->first();
+        $file = $filename->file;
+        $path = $file = public_path().'/book/'.$file;
+        return response()->file($path);
     }
 
     /**

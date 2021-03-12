@@ -30,7 +30,8 @@ class LoginController extends Controller
 
     public function redirectTo(){
         if(auth()->check()){
-            if(auth()->user()->role == "member"){
+          
+            if(auth()->user()->role == "member" && auth()->user()->profil->is_active){
                 return url('/dashboard');
             } elseif (auth()->user()->role == "petugas"){
                 return url('/dashadmin');
