@@ -78,31 +78,14 @@ class UserDashboardController extends Controller
     public function show($id)
     {
         $buku = Buku::find($id);
-        $komen = Komentar_buku::where('buku_id', $id)
-        ->join('profils','komentar_bukus.user_id','=','profils.id')
-        ->join('bukus', 'komentar_bukus.buku_id','=','bukus.id')
-        ->orderBy('komentar_bukus.created_at')
+        $comment = Komentar_buku::where('buku_id', $id)
+        // ->join('profils','komentar_bukus.user_id','=','profils.id')
+        // ->join('bukus', 'komentar_bukus.buku_id','=','bukus.id')
+        // ->orderBy('komentar_bukus.created_at')
         ->get();
-
-        return view('member.dash.show', compact('buku','komen'));
-        /**$buku = Buku::find($id);
-        $komentara = Komentar_buku::where('buku_id', $id)->orderBy('created_at','DESC')->get();
-        $idendity =[];
-        $comment =[];
-        foreach($komentara as $komen){
-            array_push($idendity, $komen->user_id);
-            array_push($comment, $komen->komentar);
-        }
-        $nama = [];
-        $foto = [];
-        foreach($idendity as $value){
-            array_push($nama, Profil::where('id', $value)->value('nama'));
-            array_push($foto, Profil::where('id', $value)->value('foto'));
-        }
-        return view('member.dash.show', compact('buku'))
-        ->with('comment', $comment)
-        ->with('nama', $nama)
-        ->with('foto', $foto);**/
+        
+        return view('member.dash.show', compact('buku','comment'));
+       
     }
 
     /**

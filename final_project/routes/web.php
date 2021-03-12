@@ -34,7 +34,7 @@ Route::get('/home', 'UserDashboardController@index')->name('home');
 #dashboard route
 Route::get('/dashboard', 'UserDashboardController@index');
 Route::get('/dashboard/{id}/show', 'UserDashboardController@show');
-Route::post('/dashboard/{id}/show', 'KomentarBukuController@update');
+Route::put('/dashboard/{id}/komen', 'KomentarBukuController@update');
 Route::get('/dashboard/cari', 'UserDashboardController@cari');
 
 #profile route
