@@ -11,11 +11,11 @@
 Perpustakaan Online
 
 # Link Video Demo
-* [Demo-Video](#)
+* [Demo-Video](https://drive.google.com/drive/folders/1FKHiWQnhKmm2IdgF4-b9B_1NqYhjWapR?usp=sharing)
 * [Code-Project](https://gitlab.com/faqihrra/kelompok-13-final-project)
 
 # Link Deploy
-* [Link-Deploy](#)
+* [Link-Deploy](http://eclib-kelompok-13.herokuapp.com/)
 
 # ERD
 * [Erd](https://drive.google.com/file/d/1A3MYIK8E208iT_UPc60O9aHRckR7D_lq/view)

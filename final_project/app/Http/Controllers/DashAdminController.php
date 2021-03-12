@@ -27,10 +27,8 @@ class DashAdminController extends Controller
          $count_kategori = Kategori::get()->count();
          $count_buku = Buku::get()->count();
          $count_user = User::get()->where('role','member')->count();
-         $count_populer = UserBuku::select('buku_id', DB::raw('SUM(rating)/COUNT(rating) as total_rating'))
-                        ->groupBy('buku_id')->orderBy('total_rating','DESC')->limit(5)->get();
          $count_pembaca = UserBuku::get()->count();
-         return view('dashadmin',compact('count_penerbit','count_kategori','count_buku','count_user','count_populer','count_pembaca'));
+         return view('dashadmin',compact('count_penerbit','count_kategori','count_buku','count_user','count_pembaca'));
     }
 
     /**

@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
             'nama' => $nama,
             'nik' => '12345678910',
             'alamat' => $faker->text($maxNbChars = 20),
-            'jenis_kelamin' => $faker->randomElement($array = array ('Laki-laki','Perempuan')),
+            'jenis_kelamin' => 'Perempuan',
             'telp' => '082312344321',
             'foto' => 'default.jpg',
             'is_active' => 1,
