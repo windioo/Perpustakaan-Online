@@ -16,7 +16,7 @@
                             </div>
                         </div>
                         <a href="index.html" >
-                            <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" />
+                            <img class="img-fluid ml-5" src="{{asset('assets/images/eclib-logo.png')}}" style="max-width : 130px; height: 35px" alt="Theme-Logo" />
                             
                         </a>
                         <a class="mobile-options waves-effect waves-light">
