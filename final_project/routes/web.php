@@ -32,14 +32,14 @@ Route::resource('member','MemberController');
 // Route::group(['middleware' => ['auth','cekrole:member']], function(){
 Route::get('/home', 'UserDashboardController@index')->name('home');
 #dashboard route
-Route::get('/dashboard', 'UserDashboardController@index');
+Route::get('/dashboard', 'UserDashboardController@index')->name('dashboard.index');
 Route::get('/dashboard/{id}/show', 'UserDashboardController@show');
 Route::put('/dashboard/{id}/komen', 'KomentarBukuController@update');
 Route::get('/dashboard/cari', 'UserDashboardController@cari');
 Route::post('/dashboard/{id}/download', 'UserDashboardController@downloadfile');
 
 #profile route
-Route::get('/profil', 'ProfilController@index');
+Route::get('/profil', 'ProfilController@index')->name('profil.index');
 Route::put('/profil/{id}', 'ProfilController@update');
 Route::put('/profil/{id}/updatefoto', 'ProfilController@updatefoto');
 
