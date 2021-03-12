@@ -8,6 +8,10 @@ use App\UserBuku;
 
 class KoleksiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');   // jika ingin beberapa yg di auth menggunakan only([])
+    }
     /**
      * Display a listing of the resource.
      *

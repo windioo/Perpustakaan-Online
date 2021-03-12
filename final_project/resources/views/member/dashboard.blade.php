@@ -9,6 +9,10 @@
             <div class="card-header with-border">
                 <h3 class="card-title">List Buku</h3>
                 <hr>
+                <form class="form-inline d-flex justify-content-end" id="formItem" action="/dashboard/cari" method="GET">
+                    <input class="form-control mr-sm-2" value="" type="search" name="keyword" placeholder="Search"  id="keyword" aria-label="Search">
+                    <button class="btn btn-outline-success btn-sm my-2 my-sm-0" type="submit" id="searchItem"><i class="fa fa-search"></i></button>
+                </form>
             </div>
         </div>
         <div class="row">

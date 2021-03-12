@@ -27,6 +27,17 @@ class UserDashboardController extends Controller
         return view('member.dashboard', compact('buku'));
     }
 
+    public function cari(Request $request){
+        if(!empty($request->input('keyword'))){
+            $cari = $request->keyword;
+            $buku = Buku::where('judul', 'like', "%{$cari}%")->paginate(12);
+        }
+        else{
+            $buku = Buku::paginate(12);
+        }
+
+        return view('member.dashboard', compact('buku'));
+    }
     /**
      * Show the form for creating a new resource.
      *
