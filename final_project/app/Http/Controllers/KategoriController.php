@@ -48,7 +48,7 @@ class KategoriController extends Controller
              $kategori = Kategori::create([
                         "nama" => $request['nama']
                     ]);
-            return redirect('/kategori')->with('success','Kategori Berhasil Disimpan!');
+            return redirect()->route('kategori.index')->with('success','Kategori Berhasil Disimpan!');
         
     }
 

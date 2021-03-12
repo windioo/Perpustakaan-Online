@@ -9,7 +9,7 @@
             
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="/buku/{{ $buku->id }}" method="POST" enctype="multipart/form-data">
+          <form role="form" action="{{route('buku.update',['buku'=> $buku->id ])}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
               <div class="box-body">
@@ -70,7 +70,7 @@
                   </div> 
                 <div class="form-group ml-3 mr-3 mt-3">
                   <label for="exampleInputEmail1">Upload Sampul</label>
-                  <input type="file" class="form-control-file mb-2" id="sampul" name="sampul" required accept="image/*">
+                  <input type="file" class="form-control-file mb-2" id="sampul" name="sampul" accept="image/*">
                   <img src="{{ asset('image/'. $buku->sampul) }}" width="200">
                     @error('sampul')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="form-group ml-3 mr-3 mt-3">
                   <label for="exampleInputEmail1">Upload Buku</label>
-                   <input type="text" class="form-control-file mb-2 col-2" disabled id="file" name="file" value="{{ $buku->file }}" required accept="application/pdf">
+                   <input type="text" class="form-control-file mb-2 col-2" disabled id="file" name="file" value="{{ $buku->file }}"  accept="application/pdf">
                    <input type="file" class="form-control-file" id="file" name="file">
                     @error('file')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -87,7 +87,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer text-right  ml-3 mr-3 mb-3">
-                  <a href="/buku" class="btn btn-default ml-3">Kembali</a>
+                <a href="{{route('buku.index')}}" class="btn btn-default ml-3">Kembali</a>
                 <button type="submit" class="btn btn-primary ml-3">Submit</button>
               </div>
             </form>

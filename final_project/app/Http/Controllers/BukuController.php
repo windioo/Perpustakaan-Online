@@ -20,7 +20,7 @@ class BukuController extends Controller
      */
     public function index()
     {
-        $buku = Buku::with('kategori','penerbit')->get();
+        $buku = Buku::with('kategori','penerbit')->orderBy('id','DESC')->get();
          return view('buku/index', compact('buku'));
     }
 
@@ -69,7 +69,7 @@ class BukuController extends Controller
                 'sampul' => $imgName,
                 'file' => $bukuName
             ]);
-        return redirect('/buku')->with('success','Data Buku Berhasil Disimpan!');
+        return redirect()->route('buku.index')->with('success','Data Buku Berhasil Disimpan!');
     }
 
     /**
@@ -99,12 +99,6 @@ class BukuController extends Controller
         return view('buku/edit', compact('buku','kat','pen'));
     }
 
-    public function editbk($id)
-    {
-        $buku = Buku::find($id);
-        return view('buku/editbk', compact('buku'));
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -121,72 +115,67 @@ class BukuController extends Controller
                 'deskripsi' => 'required',
                 'penulis' => 'required',
                 'tahun' => 'required',
-                // 'sampul' => 'image',
-                // 'file' => 'required'
                 ]);
 
-                    if($request->sampul != ''){        
-                    $path = public_path('image/');
+        if($request->sampul != ''){        
+            $path = public_path('image/');
 
-                    //code for remove old file
-                    if($buku->sampul != ''  && $buku->sampul != null){
-                        $file_old = $path.$buku->sampul;
-                        unlink($file_old);
-                    }
+            //code for remove old file
+            if($buku->sampul != ''  && $buku->sampul != null){
+                $file_old = $path.$buku->sampul;
+                unlink($file_old);
+            }
 
-                    //upload new file
-                    $file = $request->sampul;
-                    $filename = $file->getClientOriginalName();
-                    $file->move($path, $filename);
+            //upload new file
+            $file = $request->sampul;
+            $filename = $file->getClientOriginalName();
+            $file->move($path, $filename);
 
 
            $buku->update([
-                   "judul" => $request['judul'],
-                        'deskripsi' => $request['deskripsi'],
-                        'penulis' => $request['penulis'],
-                        'tahun' => $request['tahun'],
-                        'sampul' => $filename
-                        
+                'judul' => $request['judul'],
+                'deskripsi' => $request['deskripsi'],
+                'penulis' => $request['penulis'],
+                'tahun' => $request['tahun'],
+                'sampul' => $filename
+                   
             ]);
 
             
-    }elseif($request->file != ''){
+        }elseif($request->file != ''){
 
-              $path = public_path('book/');
+        $path = public_path('book/');
 
-                    //code for remove old file
-                    if($buku->file != ''  && $buku->file != null){
-                        $file_old = $path.$buku->file;
-                        unlink($file_old);
-                    }
+        //code for remove old file
+        if($buku->file != ''  && $buku->file != null){
+            $file_old = $path.$buku->file;
+            unlink($file_old);
+        }
 
-                    //upload new file
-                    $files = $request->file;
-                    $filename = $files->getClientOriginalName();
-                    $files->move($path, $filename);
+        //upload new file
+        $files = $request->file;
+        $filename = $files->getClientOriginalName();
+        $files->move($path, $filename);
 
 
-           $buku->update([
-                   "judul" => $request['judul'],
-                        'deskripsi' => $request['deskripsi'],
-                        'penulis' => $request['penulis'],
-                        'tahun' => $request['tahun'],
-                        'file' => $filename
-                        
-            ]);
+        $buku->update([
+            'judul' => $request['judul'],
+            'deskripsi' => $request['deskripsi'],
+            'penulis' => $request['penulis'],
+            'tahun' => $request['tahun'],
+            'file' => $filename
+        ]);
     }else{
         $buku->update([
-                   "judul" => $request['judul'],
-                        'deskripsi' => $request['deskripsi'],
-                        'penulis' => $request['penulis'],
-                        'tahun' => $request['tahun'],
-                        
-                        
-            ]);
+            'judul' => $request['judul'],
+            'deskripsi' => $request['deskripsi'],
+            'penulis' => $request['penulis'],
+            'tahun' => $request['tahun'],
+       ]);
 
             
     }
-    return redirect('/buku')->with('success','Berhasil Di Ubah!');
+    return redirect()->route('buku.index')->with('success','Berhasil Di Ubah!');
 }
 
    
@@ -200,6 +189,6 @@ class BukuController extends Controller
     public function destroy($id)
     {
         $buku = Buku::destroy($id);
-        return redirect('/buku')->with('success','Berhasil Di Dihapus!');
+        return redirect()->route('buku.index')->with('success','Berhasil Di Dihapus!');
     }
 }
