@@ -56,7 +56,7 @@ class UserDashboardController extends Controller
         ]);
         $filename = Buku::find($id);
         $file = public_path().'/book/'.$filename->file;
-        return response()->download($file);
+        return response()->file($file);
     }
     /**
      * Show the form for creating a new resource.
