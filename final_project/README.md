@@ -11,7 +11,7 @@
 Perpustakaan Online
 
 # Link Video Demo
-* [Demo-Video](https://drive.google.com/drive/folders/1FKHiWQnhKmm2IdgF4-b9B_1NqYhjWapR?usp=sharing)
+* [Demo-Video](https://drive.google.com/drive/folders/1ogVL2LUnmGmxx6UELQvBJTi7wDHC71O6?usp=sharing)
 * [Code-Project](https://gitlab.com/faqihrra/kelompok-13-final-project)
 
 # Link Deploy
